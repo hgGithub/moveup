@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>inner test</title>
+	<script type="text/javascript" src="js/flexibleFit.js"></script>
+	<script type="text/javascript" src="js/moveup.js"></script>
+	<style>
+		ul, li{margin: 0;padding: 0;list-style: none;}
+		.page-box{
+			width: 100%;
+			height: auto;
+		}
+		.li{width: 100%;float: left;height: 50px;line-height: 50px;text-align: center;font-weight: bold;}
+		.loading, .toEnd{width:100%;height: 50px;line-height: 50px;text-align: center;font-size: 40px;color: red;display: none;}
+
+	</style>
+</head>
+<body>
+	<div class="test">first line</div>
+	<div class="img-box"><img src="./images/forum.png" alt=""></div>
+	<ul class="page-box">
+		<li>item1</li>
+		<li>item2</li>
+		<li>item3</li>
+		<li>item4</li>
+		<li>item5</li>
+		<li>item6</li>
+		<li>item7</li>
+		<li>item8</li>
+		<li>item8</li>
+		<li id="test8">item8</li>
+	</ul>
+	<div class="loading">正在加载...</div>
+	<div class="toEnd">到底了，别拽了</div>
+
+	<script type="text/javascript">
+		// require(['./js/3thlib/temp'], function(test) {
+		// 	test();
+		// });
+
+		// seajs.use(['./js/3thlib/temp'], function(test) {
+		// 	test();
+		// });
+    //绑定分页//添加两个样式，正在加载，加载完毕已到最后。
+
+    function getData(cp, comp) {
+    	console.log("Data is loading!");
+    	var pageBox = document.querySelector('.page-box');
+
+    	
+    	setTimeout(function () {
+    	var innnerHtml = pageBox.innerHTML;
+
+    	var newNode = document.createElement("div");
+    	var oldNode = pageBox.lastChild;
+    	newNode.innerHTML = innnerHtml;  
+    	pageBox.insertBefore(newNode, oldNode);  		
+    		comp && (typeof comp === "function") && comp(true);
+    	}, 2000);
+    }
+
+    new MoveUp({
+        curPage: 1,
+        totalPage: 3,
+        getData: getData,
+        loading: ".loading",
+        toEnd: ".toEnd"
+    });
+
+
+
+   //异步
+   // define("alpha", ["require", "exports", "beta"], function(require, exports, beta) {
+
+
+
+   // 		return {};
+   // });
+
+   // //同步
+   // define(function(require, exports, module) {
+   // 	 module.exports = {};
+   // });  		
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "esc-exercise2",
+  "version": "1.0.0",
+  "description": "this is a es6 practice project.",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d dist -s",
+    "run-js": "babel-node *.js"
+  },
+  "keywords": [
+    "es6",
+    "practice"
+  ],
+  "author": "hg",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  }
+}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>es6 exercise2</title>
+	<style type="text/css">
+		.img-test{
+			width: 300px;
+			height: 300px;
+		}
+		.img-test img{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="img-test"></div>
+	<!-- <script type="text/javascript" src="./dist/js/es61.js"></script> -->
+	<script type="text/javascript">
+	// 	var {x: y} = {x: 8};
+
+	// 	var f = v => v;
+	// 	var h = n => console.log("inner function");
+
+	// 	console.log(f("hello"));
+	// 	h(4);
+
+	// 	var fun = (num1, num2) => ({"num1": num1, "num2": num2});
+
+	// 	console.log(fun(3, 9));
+	// 	(() => console.log(this))();
+
+	// 	var a = {
+	// 		test: () => console.log('a:', this)
+	// 	};
+
+	// 	function add(x, y) {
+	// 		return x + y;
+	// 	}
+
+	// 	console.log(add(...[7,9]));
+
+	// 	console.log(...[3, 6], 9);
+
+	// 	var a = [2, 4, 5],
+	// 			b = [9, 11, 66];
+
+	// 	a.push(...b);
+	// 	console.log(a);
+
+	// 	let arrayLike = {
+	// 		"0": "a",
+	// 		"1": "b",
+	// 		length: 2
+	// 	};
+
+	// var car = {
+	// 	_weels: 4,
+
+	// 	get wheels() {
+	// 		return this._weels;
+	// 	},
+
+	// 	set wheels(value) {
+	// 		if(value < this._weels) {
+	// 			throw new Error('数值太小了');
+	// 		}
+
+	// 		this._weels = value;
+	// 	}
+	// }; 
+
+
+	// object.defineProperty(object, 'is', {
+	// 	value: function() {}
+	// });
+
+	// Object.setProtoOf(object, proto);
+
+	// var o = Object.create({x: 1, y: 2});
+	// o.z = 3;
+	// console.log("o: ", o);
+	// let {x, ...{y, z}} = o;
+
+	// console.log(x, {y, z});
+
+	// var a = Symbol();
+
+	// var ab= {[a]: function() {
+	// 	console.log('Inner symbol!');
+	// }};
+
+	// ab[a]();
+
+	// var a = [2, 4, 8, 2, 4];
+	// console.log([...new Set(a)]);
+	// let [a, b] = [3, 9];
+	// var set = new Set();
+	// set.add(a);
+	// set.add(b);
+
+	// console.log("set: ", set);
+	// Array.from(new Set([3, 5, 6,2, 5]));
+
+	// let a1 = [2, 6, 8];
+	// let a2 = [2, 9, 5];
+
+	// //并集
+	// let a11 = new Set(a1);
+	// let a22 = new Set(a2);
+
+	// //交集
+	// console.log([...a11].filter(x => a22.has(x)));
+
+	// const map = new Map();
+	// map
+	// .set('aa', 'aaaa')
+	// .set('bb', 'bbb');
+
+	// console.log(map.get('aa'), map.get('bb'));
+	// var obj = new Proxy({}, {
+	// 	get: function(target, key, receive) {
+	// 		console.log(`getting ${key}!`);
+	// 		return Reflect.get(target, key, receiver);
+	// 	},
+	// 	set: function(target, key, value, receiver) {
+	// 		console.log(`setting ${key}!`);
+	// 		return Reflect.set(target, key, value, receiver);
+	// 	}
+	// });
+
+	// let proto = new Proxy({}, {
+	// 	get(target, propertyKey, recerver) {
+	// 		console.log('GET: ' + propertyKey, target);
+
+	// 		return target[propertyKey];
+	// 	}
+	// });
+
+	// let obj = Object.create(proto);
+	// obj.xxx;
+
+	// var handler = {
+	// 	has (target, key) {
+	// 		if(key[0] === "-") {
+	// 				return false;
+	// 		}
+
+	// 		return key in target;
+	// 	}
+	// };
+
+	// var proxy = new Proxy({_prop: "heh", prop: "yey"}, handler);
+
+	// console.log("_prop" in proxy);
+
+	// var obj = {a: 10, b: 89};
+	// Object.preventExtensions(obj);
+
+	// var p = new Proxy(obj, {
+	// 	has: function(target, prop) {
+	// 		return false;
+	// 	}
+	// });
+
+	// console.log('a' in p);
+	// Object.defineProperty(obj, name, desc);
+	// var attr = {"name": "hello"};
+	// "name" in attr;
+
+	// Reflect.has(attr, "name");
+
+	// var myObject = {
+	// 	foo: 1,
+	// 	bar: 2,
+	// 	get baz() {
+	// 		return this.foo + this.bar;
+	// 	}
+	// };
+
+	// Object.getOwnPropertyDescriptor();
+
+	//异步编程模式Promise
+
+	// var promise = new Promise(function(resolve, reject) {
+	// 	if() {
+	// 		resolve(value);
+	// 	} else {
+	// 		reject(error);
+	// 	}
+	// });
+
+	// promise.then(function(value) {
+
+	// }, function(error) {
+
+	// })	
+
+	// function timeout(ms) {
+	// 	return new Promise((resolve, reject) => {
+	// 		setTimeout(resolve, ms, 'done');
+	// 	});
+	// }
+
+	// timeout(100).then((value) => {
+	// 	console.log(value);
+	// });
+
+	// let promise = new Promise(function(resolve, reject) {
+	//   console.log('Promise');
+	//   return resolve();
+	// });
+
+	// promise.then(function() {
+	// 	console.log('resolved!');
+	// });
+
+	// var getJSon = function(url) {
+	// 	var promise = new Promise((resolve, reject) => {
+	// 		var client = new XMLHttpRequest();
+	// 		client.open("GET", url);
+	// 		client.onreadystatechange = handler;
+	// 		client.responseType = "json";
+	// 		client.setRequestHeader("Accept", "application/json");
+	// 		client.send();
+
+	// 		function handler() {
+	// 			if (this.readyState !== 4) {
+	// 				return ;
+	// 			}
+
+	// 			if (this.status === 200) {
+	// 				resolve(this.response);
+	// 			} else {
+	// 				reject(new Error(this.statusText));
+	// 			}
+	// 		}
+	// 	});
+
+	// 	return promise;
+	// }
+
+	// getJSon("/posts.json").then(json => console.log('content: ' + json), 
+	// 		error => console.log("出错了"， error)
+	// 	); 
+
+	// promise.then(resolve => console.log("success");).catch(error => console.log(error););
+
+	// var promise = new Promise((resolve, reject) => {
+	// 	try {
+	// 		throw new Error('test');
+	// 	} catch(e) {
+	// 		reject(e);
+	// 	}
+	// });
+
+	const preloadImage = function (path) {
+		return new Promise(function(resolve, reject) {
+			var img = new Image();
+			img.onload = resolve;
+			img.onerror = reject;
+			img.src = path;
+		});
+	}
+
+	function getFoo () {
+		return new Promise(function (resolve, reject) {
+			resolve("foo");
+		});
+	}
+
+	var g = function* (){
+		try {
+			var foo = yield getFoo();
+			console.log(foo);
+		} catch (e) {
+			console.log(e);
+		}
+	}
+
+	function run (generator) {
+		var it = generator();
+
+		function go(result) {
+			if (result.done) return result.value;
+
+			return result.value.then(function() {
+				return go(it.next(value));
+			}, function(error) {
+				return go(it.throw(error));
+			});
+		}
+
+		go(it.next());
+	}
+
+	run(g);
+
+	const f = () => console.log('now');
+	(async () => f())();
+	console.log('next');
+
+	const f = () => console.log("now");
+	(
+		() => new Promise(
+			resolve => resolve(f());
+		)
+	)();
+
+	var generator = function* () {
+		yield 1;
+		yield* [2, 3, 4];
+		yield 5;
+	}
+
+	var iterator = generator();
+
+	iterator.next();
+	iterator.next();
+
+	function readLineSync(file) {
+		return {
+			next() {
+				return {done: false};
+			}
+
+			return() {
+				file.close();
+				return {done: true};
+			}
+		}
+	}
+
+	
+
+	</script>
+</body>
+</html>

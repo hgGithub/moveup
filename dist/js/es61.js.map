@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/js/es61.js"],"names":["test","console","log"],"mappings":";;AAAA,CAAC,YAAM;;AAEN;AACA,KAAMA,OAAO,SAAPA,IAAO;AAAA,SAAMC,QAAQC,GAAR,CAAY,gBAAZ,CAAN;AAAA,EAAb;;AAEAF;AAEA,CAPD","file":"es61.js","sourcesContent":["(() => {\r\n\r\n\t//es6 测试脚本\r\n\tconst test = () => console.log(\"hello world!!!\");\r\n\r\n\ttest();\r\n\r\n})();"]}
